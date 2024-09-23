@@ -1,0 +1,12 @@
+.gradle
+.idea
+build
+outcome-*
+.*
+**/src/docs/asciidoc/*.pdf
+**/src/docs/asciidoc/*.html
+!.gitignore
+!.gitattributes
+!.gitlab-ci.yml
+!.asciidoctorconfig.adoc
+!.github

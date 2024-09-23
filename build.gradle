@@ -1,0 +1,36 @@
+plugins {
+	id 'java'
+}
+
+repositories {
+	mavenCentral()
+}
+
+group 'ch.bbw'
+version '0.0.0-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
+task runApp(type: JavaExec) {
+	classpath = sourceSets.main.runtimeClasspath
+	mainClass = 'ch.bbw.m320.textadventure.Main'
+}
+
+// tag::dependencies[]
+dependencies {
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.17.2'
+	// end::dependencies[]
+	implementation 'org.fusesource.jansi:jansi:2.4.1'
+
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.0'
+	testImplementation 'org.assertj:assertj-core:3.26.3'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.11.0'
+}
