@@ -6,6 +6,7 @@ public class StoryTeller {
 
 
     private String currentRoom;
+    private String message;
 
     public void startGame() {
         System.out.println("Welcome to the tutorial! This is a simple text adventure (also called 'interactive fiction').\n" +
@@ -19,6 +20,11 @@ public class StoryTeller {
         play();
     }
 
+    private void describeRoom(String room) {
+        System.out.println("You are in " + room);
+    }
+
+
     private void play() {
         Scanner scanner = new Scanner(System.in);
 
@@ -30,15 +36,13 @@ public class StoryTeller {
         }
     }
 
-    private void describeRoom(String room) {
-        System.out.println("You are in " + room);
-    }
-
     private void handleCommand(String command) {
         if (command.equals("go east")) {
             currentRoom = "room-two";
         } else if (command.equals("go west")) {
             currentRoom = "room-one";
+        } else if (command.equals("look table")) {
+            System.out.println("This is a simple, wooden table. It has a small key lying on top.");
         } else {
             System.out.println("Unknown command.");
         }
